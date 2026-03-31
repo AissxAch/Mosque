@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="الموقع الرسمي لمسجد التقوى: مواقيت الصلاة، الإعلانات، الدروس، التواصل، وجولة ثلاثية الأبعاد للمسجد."
+    />
+    <meta name="theme-color" content="#4f7b61" />
+    <title>مسجد التقوى | عبادة ومجتمع</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">تخطي إلى المحتوى</a>
+
+    <header class="hero" id="home">
+      <nav class="container nav" aria-label="التنقل الرئيسي">
+        <div class="brand" aria-label="اسم المسجد">مسجد التقوى</div>
+        <ul class="nav-links">
+          <li><a href="#prayer-times">مواقيت الصلاة</a></li>
+          <li><a href="#announcements">الإعلانات</a></li>
+          <li><a href="#lessons">الدروس</a></li>
+          <li><a href="#contact">التواصل</a></li>
+        </ul>
+      </nav>
+
+      <div class="container hero-content">
+        <p class="eyebrow">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <h1>مرحبًا بكم في مسجد التقوى</h1>
+        <p class="hero-text">
+          مكان إيماني هادئ للعبادة والتعلّم وخدمة المجتمع. انضموا إلينا في الصلوات اليومية
+          والدروس الأسبوعية والبرامج الأسرية.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#explore">عرض المسجد ثلاثي الأبعاد</a>
+          <a class="btn btn-secondary" href="#prayer-times">مواقيت الصلاة اليوم</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section lazy-section" id="prayer-times" aria-labelledby="prayer-title">
+        <div class="container">
+          <h2 id="prayer-title" class="section-title">مواقيت الصلاة</h2>
+          <p class="section-subtitle">جدول الصلوات اليومي للمسجد.</p>
+          <div id="prayer-grid" class="grid prayer-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section section-tint lazy-section" id="announcements" aria-labelledby="announcements-title">
+        <div class="container">
+          <h2 id="announcements-title" class="section-title">الإعلانات</h2>
+          <p class="section-subtitle">آخر أخبار المسجد والتنبيهات المهمة للمجتمع.</p>
+          <div class="grid cards-3">
+            <article class="card hover-card" tabindex="0" aria-label="إعلان حملة التطوع في رمضان">
+              <h3>حملة التطوع لشهر رمضان</h3>
+              <p>نحتاج إلى متطوعين لتجهيز وتنظيم الإفطار الجماعي كل يوم جمعة.</p>
+              <span class="meta">نُشر بتاريخ: 29 مارس 2026</span>
+            </article>
+            <article class="card hover-card" tabindex="0" aria-label="إعلان حلقة أسرية أسبوعية">
+              <h3>حلقة أسرية أسبوعية</h3>
+              <p>موعدنا كل سبت بعد صلاة المغرب لحلقة ذكر وتدبّر للأسرة.</p>
+              <span class="meta">نُشر بتاريخ: 27 مارس 2026</span>
+            </article>
+            <article class="card hover-card" tabindex="0" aria-label="إعلان حملة خيرية">
+              <h3>الحملة الخيرية الموسمية</h3>
+              <p>ساهموا في دعم الأسر المحتاجة بالسلال الغذائية والاحتياجات الأساسية.</p>
+              <span class="meta">نُشر بتاريخ: 22 مارس 2026</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lazy-section" id="lessons" aria-labelledby="lessons-title">
+        <div class="container">
+          <h2 id="lessons-title" class="section-title">الدروس والبرامج</h2>
+          <p class="section-subtitle">برامج تعليمية منتظمة لجميع الفئات طوال الأسبوع.</p>
+          <div class="grid cards-2">
+            <article class="card hover-card" tabindex="0" aria-label="درس تجويد القرآن">
+              <h3>تجويد القرآن</h3>
+              <p>الثلاثاء والخميس، 6:30 مساءً &ndash; 7:30 مساءً</p>
+              <span class="meta">المحاضر: الأستاذ كريم</span>
+            </article>
+            <article class="card hover-card" tabindex="0" aria-label="درس السيرة النبوية">
+              <h3>مجلس السيرة النبوية</h3>
+              <p>الأحد، 11:00 صباحًا &ndash; 12:00 ظهرًا</p>
+              <span class="meta">المحاضر: الإمام سلمان</span>
+            </article>
+            <article class="card hover-card" tabindex="0" aria-label="برنامج توجيه الشباب">
+              <h3>برنامج توجيه الشباب</h3>
+              <p>الجمعة، 7:45 مساءً &ndash; 8:45 مساءً</p>
+              <span class="meta">الفئة العمرية: 13&ndash;19 سنة</span>
+            </article>
+            <article class="card hover-card" tabindex="0" aria-label="دورة أساسيات الإيمان">
+              <h3>أساسيات الإيمان</h3>
+              <p>الاثنين، 7:00 مساءً &ndash; 8:00 مساءً</p>
+              <span class="meta">مفتوح للجميع</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="explore" aria-labelledby="explore-title">
+        <div class="container">
+          <h2 id="explore-title" class="section-title">استكشف المسجد</h2>
+          <p class="section-subtitle">يمكنك تدوير النموذج لمشاهدة المسجد من زوايا مختلفة.</p>
+
+          <div class="scene-wrap" id="scene-wrap" aria-live="polite" aria-busy="true">
+            <div
+              class="scene-loader"
+              id="scene-loader"
+              role="status"
+              aria-label="جارٍ تحميل نموذج المسجد ثلاثي الأبعاد"
+              aria-live="polite"
+            >
+              <span class="spinner" aria-hidden="true"></span>
+              <span id="scene-status">جارٍ تحميل نموذج المسجد...</span>
+            </div>
+            <canvas id="mosque-canvas" class="mosque-canvas" aria-label="عرض ثلاثي الأبعاد للمسجد"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lazy-section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <h2 id="contact-title" class="section-title">التواصل</h2>
+          <p class="section-subtitle">زورونا أو تواصلوا معنا للمشاركة في برامج المسجد.</p>
+
+          <div class="grid cards-2">
+            <article class="card">
+              <h3>معلومات المسجد</h3>
+              <p><strong>الاسم:</strong> مسجد التقوى</p>
+              <p><strong>الهاتف:</strong> +1 (555) 013-7860</p>
+              <p><strong>البريد الإلكتروني:</strong> info@masjidaltaqwa.org</p>
+            </article>
+
+            <article class="card">
+              <h3>الموقع على الخريطة</h3>
+              <div class="map-placeholder" role="img" aria-label="رابط موقع المسجد على خرائط Google">
+                <img src="./assets/images/map-pin.svg" alt="أيقونة موقع" loading="lazy" />
+                <p>افتح موقع مسجد التقوى مباشرة على خرائط Google.</p>
+                <a class="btn btn-primary map-link" href="https://maps.app.goo.gl/dGEvyX4fRhhS8NZS6" target="_blank" rel="noopener noreferrer">
+                  فتح الموقع في Google Maps
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> مسجد التقوى. جميع الحقوق محفوظة.</p>
+        <p>المسجد مفتوح يوميًا للصلوات وخدمة المجتمع.</p>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="container" style="padding: 1rem 0; color: #3f644f; font-weight: 600;">
+        JavaScript غير مفعّل. عرض مواقيت الصلاة والمجسم ثلاثي الأبعاد يتطلب تفعيل JavaScript.
+      </div>
+    </noscript>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
