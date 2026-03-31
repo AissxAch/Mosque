@@ -1,0 +1,75 @@
+name: Update Prayer Times
+
+on:
+  schedule:
+    # Run at 00:05 UTC every day
+    - cron: '5 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-prayers:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Update prayer times from Mawaqit
+        run: |
+          Add-Type -AssemblyName System.Globalization
+          $culture = [System.Globalization.CultureInfo]::GetCultureInfo('ar-DZ')
+          $url = 'https://mawaqit.net/ar/m/masjid-ltaqwa-skikda-21006-algeria'
+          
+          try {
+            $html = (Invoke-WebRequest -Uri $url -UseBasicParsing).Content
+            $m = [regex]::Match($html, 'var\s+confData\s*=\s*(\{[\s\S]*?\})\s*;')
+            
+            if (-not $m.Success) {
+              throw 'confData not found in Mawaqit page'
+            }
+            
+            $conf = $m.Groups[1].Value | ConvertFrom-Json
+            $now = Get-Date
+            $monthIndex = $now.Month - 1
+            $dayKey = [string]$now.Day
+            $row = $conf.calendar[$monthIndex].$dayKey
+            
+            if (-not $row) {
+              throw "Prayer times for day $dayKey not found in calendar"
+            }
+            
+            $data = @{
+              date = $now.ToString('d', $culture)
+              city = 'عين شرشار - سكيكدة'
+              source = 'Mawaqit'
+              updatedAt = $now.ToString('s')
+              times = @(
+                @{ name = 'الفجر'; time = $row[0] },
+                @{ name = 'الظهر'; time = $row[2] },
+                @{ name = 'العصر'; time = $row[3] },
+                @{ name = 'المغرب'; time = $row[4] },
+                @{ name = 'العشاء'; time = $row[5] }
+              )
+            }
+            
+            $data | ConvertTo-Json -Depth 10 | Out-File -Encoding UTF8 'data/prayer-times.json'
+            Write-Host "✅ Prayer times updated successfully for $($now.ToString('d', $culture))"
+          }
+          catch {
+            Write-Error "❌ Failed to update prayer times: $_"
+            exit 1
+          }
+        shell: powershell
+      
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prayer-times.json
+          
+          if (git diff --cached --quiet) {
+            Write-Host "⏭️  No changes to commit"
+          } else {
+            git commit -m "chore: update prayer times from Mawaqit"
+            git push
+            Write-Host "✅ Changes pushed successfully"
+          }
+        shell: powershell
