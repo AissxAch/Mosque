@@ -50,7 +50,8 @@ jobs:
               )
             }
             
-            $data | ConvertTo-Json -Depth 10 | Out-File -Encoding UTF8 'data/prayer-times.json'
+            $jsonText = $data | ConvertTo-Json -Depth 10
+            [System.IO.File]::WriteAllText('data/prayer-times.json', $jsonText, [System.Text.Encoding]::UTF8)
             Write-Host "✅ Prayer times updated successfully for $($now.ToString('d', $culture))"
           }
           catch {
